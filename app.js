@@ -33,7 +33,7 @@ function codeAddress(address) {
             
         var prop = {
             center:new google.maps.LatLng(results[0].geometry.bounds.f.f, results[0].geometry.bounds.b.b),
-            zoom: 8
+            zoom: 6
         };
 
     var map=new google.maps.Map(document.getElementById('map'),prop);
@@ -59,9 +59,25 @@ function codeAddress(address) {
   }
   $('#search-form').submit(function (e) {
     e.preventDefault();
-    var cityInput = $('#cities_val').val();
-    console.log(cityInput);
-    codeAddress(cityInput);
+    var citiesVal = $('#cityInput').val();
+    console.log(citiesVal);
+    codeAddress(citiesVal);
   });
 
 google.maps.event.addDomListener(window, 'load', initialize);
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById("myBtn").style.display = "block";
+    } else {
+        document.getElementById("myBtn").style.display = "none";
+    }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+}

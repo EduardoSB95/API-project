@@ -1,7 +1,7 @@
 $(function () {
-    $('#form').submit(function (e) {
+    $('#wrap').submit(function (e) {
         e.preventDefault();
-        var amount = $('#get-exchange').val();
+        var amount = $('#get-alternate').val();
         var currencySelectFrom = $('#currency-list-form').val();
         var currencySelectTo = $('#currency-list-to').val();
         getExchangeRate(amount, currencySelectFrom, currencySelectTo);
